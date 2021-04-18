@@ -1,0 +1,13 @@
+.about-title{
+    margin: 15px auto;
+    text-align: center;
+}
+
+.about-us{
+    margin: 20px auto;
+    width: 900px;
+}
+
+.about-us p{
+    padding: 5px;
+}

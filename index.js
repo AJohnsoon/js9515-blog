@@ -1,4 +1,4 @@
-const server = require('./router');
+const server = require('./app');
 
 server.listen(3000, (err)=>{
     if(err)

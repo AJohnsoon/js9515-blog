@@ -2,9 +2,9 @@
   "name": "js9515-blog",
   "version": "1.0.0",
   "description": "blog with administrative panel",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon server.js"
   },
   "repository": "git@github.com:AJohnsoon/js9515-blog.git",
   "author": "Allan Leal <allanjohnson.leal@gmail.com>",

@@ -1,4 +1,4 @@
-const server = require('./app');
+const server = require('./dataAuthenticate');
 
 server.listen(3000, (err)=>{
     if(err)

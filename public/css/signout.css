@@ -23,16 +23,3 @@ button{
     float: right;
     border-radius:4px solid;
 }
-
-cite{
-    color: red;
-}
-cite p{
-    margin-top: -79px;
-    margin-left: 79px;
-    text-align: center;
-}
-
-a{
-    text-decoration: none;
-}

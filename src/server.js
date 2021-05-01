@@ -1,4 +1,4 @@
-const server = require('./dataAuthenticate');
+const server = require('./conn');
 
 server.listen(3000, (err)=>{
     if(err)

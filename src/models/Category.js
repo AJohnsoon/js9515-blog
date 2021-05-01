@@ -13,4 +13,5 @@ const Category = connection.define('categories', {
 })
 
 
+//update database -> Category.sync()
 module.exports = Category;

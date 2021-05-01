@@ -1,4 +1,4 @@
-const dataAuth = require('./app');
+const conn = require('./app');
 const connection = require('./database/data');
 
 connection.authenticate().then(() =>{
@@ -7,4 +7,4 @@ connection.authenticate().then(() =>{
     console.log(err, 'error to connecting database')
 })
 
-module.exports = dataAuth
+module.exports = conn

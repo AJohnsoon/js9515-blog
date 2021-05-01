@@ -14,6 +14,10 @@ router.get('/signin', (req, res)=>{
     res.render('signin', {})
 })
 
+router.get('/signout', (req, res)=>{
+    res.render('signout', {})
+})
+
 
 
 module.exports = router

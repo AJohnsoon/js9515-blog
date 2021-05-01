@@ -21,6 +21,7 @@ header nav ul {
     float: right;
 }
 
+
 header nav ul li{
     display: inline;
     padding: 0px 15px;
@@ -39,3 +40,4 @@ header nav ul a:hover{
     border-bottom: 3px solid #ea0000;
 
 }
+

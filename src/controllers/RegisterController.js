@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const crypto = require('crypto');
 const modelRegister = require('../models/Register');
+const { create } = require('domain');
 
 router.get('/register', (req, res)=>{
     res.render('register', {})
@@ -9,14 +10,21 @@ router.get('/register', (req, res)=>{
 
 
 router.post('/account/save',(req, res)=>{
+
+    const user = req.body.username
+    const pwdHash = crypto.createHash('sha256').update(req.body.password).digest('base64')+ ''+ crypto.createHash('sha256').update(req.body.username).digest('base64')
+    const pwdConfHash = crypto.createHash('sha256').update(req.body.confirmpwd).digest('base64')+ ''+ crypto.createHash('sha256').update(req.body.username).digest('base64')
+
     const createAccount = {
-        username: req.body.username,
-        pwd: crypto.createHash('md5').update(req.body.password).digest('hex'),
-        confpwd: crypto.createHash('md5').update(req.body.confirmpwd).digest('hex')
+        username: user,
+        pwd: pwdHash,
+        confpwd: pwdConfHash
     }
 
-
-    if(createAccount.username === '' || createAccount.password === '' || createAccount.confpwd === ''){
+    if(createAccount.username === '' || createAccount.pwd === '' || createAccount.confpwd === ''){
+        res.redirect('/register')
+    }
+    else if(createAccount.pwd !== createAccount.confpwd){
         res.redirect('/register')
     }
     else{

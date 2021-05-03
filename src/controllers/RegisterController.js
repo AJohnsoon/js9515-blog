@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const crypto = require('crypto');
 const modelRegister = require('../models/Register');
-const { create } = require('domain');
 
 router.get('/register', (req, res)=>{
     res.render('register', {})

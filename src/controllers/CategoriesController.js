@@ -21,6 +21,8 @@ router.post('/categories/save', (req, res)=>{
     }
 })
 
-
+router.get('/admin/categories/', (req, res)=>{
+    res.render('views/admin/index', {})
+})
 
 module.exports = router

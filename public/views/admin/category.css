@@ -1,6 +1,11 @@
 .category{
-    margin: 20px auto;
+    margin: 100px auto;
     width: 900px;
+}
+
+.category h1{
+    color: #770000;
+    padding-left: 10px;
 }
 
 input{

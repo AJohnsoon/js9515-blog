@@ -16,13 +16,15 @@ router.post('/categories/save', (req, res)=>{
             title: title,
             slug: slugify(title)
         }).then(()=>{
-            res.redirect('/')
+            res.redirect('/admin/categories/')
         })
     }
 })
 
 router.get('/admin/categories/', (req, res)=>{
-    res.render('views/admin/index', {})
+    modelCategory.findAll().then(( categories)=>{
+        res.render('views/admin/index', {showCategories: categories})
+    })
 })
 
 module.exports = router

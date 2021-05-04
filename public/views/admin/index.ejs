@@ -19,20 +19,15 @@
                 <th>Action</th>
             </tr>
         </thead>    
-        <tbody>
+        <tbody>            
+            <% showCategories.forEach(category=>{ %>
             <tr>
-                <th> 1</th>
-                <th>Dev Web</th>
-                <th>Dev-Web</th>
+                <th> <%= category.id %> </th>
+                <th> <%= category.title %> </th>
+                <th> <%= category.slug %> </th>
                 <th></th>
             </tr>
-            <tr>
-                <th> 2</th>
-                <th>Dev Backend</th>
-                <th>Dev-Beckend</th>
-                <th></th>
-            </tr>
-            
+            <% }) %>
         </tbody>
     </table>
     

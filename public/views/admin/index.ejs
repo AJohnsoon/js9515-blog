@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category</title>
-    <link rel="stylesheet" type="text/css" href="/views/admin/index.css">
+    <link rel="stylesheet" type="text/css" href="/views/admin/css/index.css">
 </head>
 <body>
     <%- include ('../../components/header.ejs') %>
-    
+    <h1>Category</h1>
     <table class="table">
         <thead>
             <tr>
@@ -31,8 +31,8 @@
         </tbody>
     </table>
     
-    <div>
-        <cite><p>if you need register a new category <a href="/admin/categories/new" >click here</a> </p></cite>
+    <div class="my-button">
+        <a href="/admin/categories/new" ><button class="btn-click"> New Category </button></a>
     </div>
 
 </body>

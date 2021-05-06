@@ -66,13 +66,9 @@ h1{
     display: inline;
 }
 
-
-
-
-
-
-
-
+a{
+    text-decoration: none;
+}
 
 .inputId{
     width: 1px;

@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Category</title>
+    <title>Edit Categories</title>
     <link rel="stylesheet" type="text/css" href="/views/admin/css/category.css">
 </head>
 <body>
     <%- include ('../../components/header.ejs') %>    
     <div class="category">
-        <h1>Add Category</h1>
-        <form method="post" action="/categories/save">
-            <input type="text" class="input-title" name="title" placeholder="define you title"><br>
-            <button class="btn-send">Add Category</button>
+        <h1>Edit Category</h1>
+        <form method="post" action="/categories/update">
+            <input type="text" class="input-title" name="title" value="<%= category.title %>" placeholder="define you title"><br>
+            <button class="btn-send">Update</button><br>
+            <input id="hidden-id" name="id" value="<%= category.id %>">
         </form>
     </div>
     

@@ -5,7 +5,7 @@ const slugify = require('slugify')
 
 router.get('/admin/categories/new', (req, res) => {
     res.render('views/admin/category', {})
-})
+});
 
 router.post('/categories/save', (req, res) => {
     let title = req.body.title;
@@ -19,7 +19,7 @@ router.post('/categories/save', (req, res) => {
             res.redirect('/admin/categories/')
         })
     }
-})
+});
 
 router.get('/admin/categories/', (req, res) => {
     modelCategory.findAll().then((categories) => {
@@ -27,28 +27,64 @@ router.get('/admin/categories/', (req, res) => {
             showCategories: categories
         })
     })
-})
+});
 
 
 router.post("/categories/delete", (req, res) => {
     let id = req.body.id;
-    if(id != undefined){
-        if(!isNaN(id)){
+    if (id != undefined) {
+        if (!isNaN(id)) {
             modelCategory.destroy({
                 where: {
-                    id:id
+                    id: id
                 }
-            }).then(()=>{
+            }).then(() => {
                 res.redirect('/admin/categories')
-            })        
-        }
-        else{
+            })
+        } else {
             res.redirect('/')
-        }    
-    }
-    else{
+        }
+    } else {
         res.redirect('/')
     }
+
+});
+
+
+
+
+router.get('/admin/categories/edit/:id', (req, res) => {
+    let id = req.params.id;
+    isNaN(id) ? res.redirect('/admin/categories') : console.log('user pass NAN')
+    try {
+        modelCategory.findByPk(id).then(category => {
+            if (category != undefined) {
+                res.render('views/admin/editCategory', {category: category})   
+            } else {
+                res.redirect('/admin/categories')
+            }
+        })
+    }
+    catch(err){
+        console.log(err)
+        res.redirect('/admin/categories')
+    }
+});
+
+
+router.post('/categories/update', (req, res)=>{
+    
+    let updateCategorie = {
+        id: req.body.id,
+        title: req.body.title
+    }
+
+    modelCategory.update({title: updateCategorie.title, slug:slugify(updateCategorie.title)}, {
+        where: {id: updateCategorie.id}
+    }).then(()=>{
+        res.redirect('/admin/categories')
+    })
+
 
 })
 

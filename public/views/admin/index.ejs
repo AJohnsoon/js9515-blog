@@ -30,10 +30,8 @@
                 <th> <%= category.title %> </th>
                 <th> <%= category.slug %> </th>
                 <th>
-                    <form class="form">
-                        <input class="inputId" name="" value="">
-                        <button class="edit-button">Edit </button>
-                    </form>
+
+                    <a href="/admin/categories/edit/<%= category.id %>"><button class="edit-button">Edit</button> </a>
                     <form class="form" method="POST" action="/categories/delete" onsubmit="deleteCategory(event, this)">
                         <input class="inputId" name="id" value="<%= category.id %>">
                         <button class="delete-button"> Delete </button>

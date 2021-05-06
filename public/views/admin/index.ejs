@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category</title>
     <link rel="stylesheet" type="text/css" href="/views/admin/css/index.css">
+    <script type="text/javascript" src="/js/deleteCategory.js"></script>
 </head>
 <body>
     <%- include ('../../components/header.ejs') %>
@@ -33,7 +34,7 @@
                         <input class="inputId" name="" value="">
                         <button class="edit-button">Edit </button>
                     </form>
-                    <form class="form" method="POST" action="/categories/delete">
+                    <form class="form" method="POST" action="/categories/delete" onsubmit="deleteCategory(event, this)">
                         <input class="inputId" name="id" value="<%= category.id %>">
                         <button class="delete-button"> Delete </button>
                     </form>

@@ -27,11 +27,22 @@ h1{
     width: 900px;
 }
 
-button{    
+.btn-click{    
     width: 100px;
     height: 30px;
     float: right;
     border-radius:4px;
-    background-color:#FFF5EE;
+    background-color:#DAA520;
 }
 
+.top-button{
+    margin: 10px auto;
+    width: 900px;
+}
+
+.btn-main{    
+    width: 600px;
+    height: 30px;
+    border-radius:4px;
+    background-color:#DAA520;
+}

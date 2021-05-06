@@ -27,11 +27,54 @@ h1{
     width: 900px;
 }
 
-button{    
+.btn-click{    
     width: 100px;
     height: 30px;
     float: right;
     border-radius:4px;
-    background-color:#FFF5EE;
+    background-color:#DAA520;
 }
 
+.top-button{
+    margin: 10px auto;
+    width: 900px;
+}
+
+.btn-main{    
+    width: 600px;
+    height: 30px;
+    border-radius:4px;
+    background-color:#DAA520;
+}
+
+.edit-button{
+    width: 60px;
+    height: 25px;
+    text-align: center;
+    background-color: #FF7F24;
+}
+
+.delete-button{
+    width: 60px;
+    height: 25px;
+    text-align: center;
+    background-color:#8B0000 ;
+    color: #fff;
+}
+
+.form{
+    display: inline;
+}
+
+
+
+
+
+
+
+
+
+.inputId{
+    width: 1px;
+    visibility: hidden;
+}

@@ -28,7 +28,16 @@
                 <th> <%= category.id %> </th>
                 <th> <%= category.title %> </th>
                 <th> <%= category.slug %> </th>
-                <th></th>
+                <th>
+                    <form class="form">
+                        <input class="inputId" name="" value="">
+                        <button class="edit-button">Edit </button>
+                    </form>
+                    <form class="form" method="POST" action="/categories/delete">
+                        <input class="inputId" name="id" value="<%= category.id %>">
+                        <button class="delete-button"> Delete </button>
+                    </form>
+                </th>
             </tr>
             <% }) %>
         </tbody>

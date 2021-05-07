@@ -4,7 +4,7 @@ const modelCategory = require('../models/Category')
 const slugify = require('slugify')
 
 router.get('/admin/categories/new', (req, res) => {
-    res.render('views/admin/category', {})
+    res.render('views/admin/categories/category', {})
 });
 
 router.post('/categories/save', (req, res) => {
@@ -23,7 +23,7 @@ router.post('/categories/save', (req, res) => {
 
 router.get('/admin/categories/', (req, res) => {
     modelCategory.findAll().then((categories) => {
-        res.render('views/admin/index', {
+        res.render('views/admin/categories/index', {
             showCategories: categories
         })
     })
@@ -59,7 +59,7 @@ router.get('/admin/categories/edit/:id', (req, res) => {
     try {
         modelCategory.findByPk(id).then(category => {
             if (category != undefined) {
-                res.render('views/admin/editCategory', {category: category})   
+                res.render('views/admin/categories/editCategory', {category: category})   
             } else {
                 res.redirect('/admin/categories')
             }

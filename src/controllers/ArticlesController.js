@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
+router.get('/admin/articles/new', (req, res) => {
+    res.render('views/admin/articles/article', {})
+});
 
-router.get('/articles', (req, res)=>{
-    res.render('articles', {})
+router.get('/admin/articles/', (req, res)=>{
+    res.render('views/admin/articles/index', {})
 })
 
 

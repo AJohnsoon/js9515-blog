@@ -6,18 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articles</title>
     <link rel="stylesheet" type="text/css" href="/views/admin/css/article.css">
+    <script type="text/javascript" src="/tinymce/tinymce.min.js"></script> 
+    <script type="text/javascript" src="/js/tiny.js"></script>  
 </head>
 <body>
     <%- include ('../../../components/header.ejs') %>
     <div class="article">
         <h1>Add New Article</h1>
-        <form method="post" action="/article/save">
-            <input type="text" class="input-title" name="title" placeholder="define you title"><br>
-            <textarea class="text-article" name="body" placeholder="make your publication here "></textarea><br>
+        <form method="post" action="/articles/save">
+            <input type="text" class="input-title" name="title" placeholder="define you title">
+            <select name="categorySelected" class="form-control">    
+                <option selected="selected">Select a category</option>                            
+                <% categories.forEach((category)=>{ %>
+                    <option value="<%= category.id %>"><%= category.title %></option>
+                <% }) %>
+            </select><br>
+            <textarea class="text-article" id="article-body" name="body" placeholder="make your publication here "></textarea><br>            
             <button class="btn-send">Add Article</button>
         </form>
     </div>
-    
     
 </body>
 </html>

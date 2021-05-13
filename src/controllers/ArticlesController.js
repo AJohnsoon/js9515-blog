@@ -30,13 +30,44 @@ router.post('/articles/save', (req, res)=>{
             res.redirect('/admin/articles/')
         })
     }
-
 })
 
-router.get('/admin/articles/', (req, res)=>{
-    res.render('views/admin/articles/index', {})
+router.get('/admin/articles', (req, res)=>{
+    modelArticle.findAll({
+        include: [{
+            model: modelCategory
+        }]
+    }).then((articles)=>{
+        res.render('views/admin/articles/index', {showArticles: articles})
+    })
 })
 
+
+
+router.post("/articles/delete", (req, res)=>{
+    let id = req.body.id;
+
+    if (id != undefined){
+        if(!isNaN(id)){
+            modelArticle.destroy({
+                where: {
+                    id: id
+                }
+            }).then(()=>{
+                res.redirect('/admin/articles')
+            })
+        }else{
+            res.redirect('/')
+        }
+    }else{
+        res.redirect('/')
+    }
+})
+
+
+router.post('/admin/articles/edit/:id', (req, res)=>{
+    res.json();
+})
 
 
 module.exports = router

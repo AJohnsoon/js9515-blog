@@ -1,18 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articles</title>
     <link rel="stylesheet" type="text/css" href="/views/admin/css/index.css">
+    <script type="text/javascript" src="/js/deletePublication.js"></script>
+
 </head>
+
 <body>
     <%- include ('../../../components/header.ejs') %>
     <h1>Articles</h1>
     <div class="top-button">
-        <a href="/admin/articles/new" ><button class="btn-main"> Add new article </button></a>
+            <a href="/admin/articles/new"><button class="btn-main"> Add new article </button></a>
     </div>
-    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Slug</th>
+                <th>Message</th>
+                <th>Category</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% showArticles.forEach(article =>{ %>
+            <tr>
+                <td> <%= article.id %></td>
+                <td> <%= article.title %> </td>
+                <td> <%= article.slug %> </td>     
+                <td> <%= article.message %></td>           
+                <td> <%= article.category.title %> </td>
+                <td>
+                    <a href="/admin/articles/edit/<%= article.id %>""><button class="edit-button">Edit</button> </a>
+                    <form class="form" method="POST" action="/articles/delete" onsubmit="deletePublication(event, this)">
+                        <input class="inputId" name="id" value="<%= article.id %>"">
+                        <button class="delete-button"> Delete </button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
 </body>
+
 </html>

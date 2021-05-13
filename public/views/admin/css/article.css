@@ -6,21 +6,28 @@
 }
 
 .article h1{
-    color: #770000;
-    padding-left: 10px;
+    color: #770000;    
 }
 
 .input-title{
     padding-left: 5px;
-    margin: 10px;
+    margin: 10px 0px;
     width: 600px;
+    height: 30px;
+    border-radius:4px ;
+}
+
+.form-control{
+    padding-left: 5px;
+    margin: 10px 0px;
+    width: 288px;
     height: 30px;
     border-radius:4px ;
 }
 
 .text-article{
     padding-top: 5px;
-    padding-left: 5px;    
+    padding-left: 5px;        
     margin: 10px;
     width: 600px;
     height: 200px;

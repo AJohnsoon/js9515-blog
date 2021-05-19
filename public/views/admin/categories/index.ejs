@@ -12,7 +12,9 @@
     <%- include ('../../../components/header.ejs') %>
     <h1>Category</h1>
     <div class="top-button">
-        <a href="/admin/categories/new" ><button class="btn-main"> Add new category </button></a>
+        <a href="/admin/categories/new" >
+            <button class="btn-main"> Add new category </button>
+        </a>
     </div>
     <table class="table">
         <thead>
@@ -30,7 +32,9 @@
                 <th> <%= category.title %> </th>
                 <th> <%= category.slug %> </th>
                 <th>
-                    <a href="/admin/categories/edit/<%= category.id %>"><button class="edit-button">Edit</button> </a>
+                    <a href="/admin/categories/edit/<%= category.id %>">
+                        <button class="edit-button">Edit</button> 
+                    </a>
                     <form class="form" method="POST" action="/categories/delete" onsubmit="deletePublication(event, this)">
                         <input class="inputId" name="id" value="<%= category.id %>">
                         <button class="delete-button"> Delete </button>

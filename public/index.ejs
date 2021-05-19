@@ -9,10 +9,26 @@
 </head>
 <body>
     <%- include ('components/header.ejs') %>
-    
     <div class="home-title">
         <h1>Wellcome to Home Page</h1>
+        <h2>see all our articles </h2>
     </div>
+
+    <div>
+    <% articles.forEach(article =>{  %>
+        <div class="main">
+            <div class="main-header">
+                <h2><%= article.title  %></h2>
+            </div>
+            <div class="read-button">
+                <a href="#">
+                    <button class="btn-main">Read Article</button> 
+                </a>
+            </div>
+        </div>
+    <% }) %>
+    </div>
+
     
 </body>
 </html>

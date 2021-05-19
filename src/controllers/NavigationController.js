@@ -1,9 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const articleModel = require('../models/Article');
+const categoryModel = require('../models/Category');
 
 
 router.get('/', (req, res)=>{
-    res.render('index',{})
+    articleModel.findAll().then((modelArticles) => {
+        res.render('index', {
+            articles: modelArticles
+        })
+    })
 })
 
 router.get('/about', (req, res)=>{

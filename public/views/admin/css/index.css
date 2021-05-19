@@ -2,12 +2,14 @@ h1{
     margin:auto;
     margin-top: 30px;
     margin-bottom: 10px;
-    width: 900px;
+    width: 1300px;
 }
 .table{
     margin: auto;
-    width: 900px;
+    width: 1300px;
+    background-color: #000;
 }
+
 .table thead tr th{
     background-color: #880000;
     color: #fff;
@@ -22,9 +24,16 @@ h1{
     background-color: #FFFAFA;
 }
 
+.table tbody tr td{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #FFFAFA;
+    text-align: center;
+}
+
 .my-button{
     margin: 50px auto;
-    width: 900px;
+    width: 1300px;
 }
 
 .btn-click{    
@@ -37,11 +46,11 @@ h1{
 
 .top-button{
     margin: 10px auto;
-    width: 900px;
+    width: 1300px;
 }
 
 .btn-main{    
-    width: 600px;
+    width: 900px;
     height: 30px;
     border-radius:4px;
     background-color:#DAA520;
@@ -57,9 +66,9 @@ h1{
 .delete-button{
     width: 60px;
     height: 25px;
-    text-align: center;
     background-color:#8B0000 ;
     color: #fff;
+
 }
 
 .form{
@@ -74,3 +83,7 @@ a{
     width: 1px;
     visibility: hidden;
 }
+
+
+
+

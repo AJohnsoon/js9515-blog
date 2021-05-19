@@ -1,0 +1,27 @@
+.main{
+    margin: auto;
+    width: 900px;
+    background-color: #880000;
+}
+
+.main-header{
+    padding: 20px;
+}
+
+.main-header h1, h2{
+    height: 40px;
+    padding-left: 5px;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.read-message{
+    width: 1000px;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+p{
+    padding: 3px;
+}
+

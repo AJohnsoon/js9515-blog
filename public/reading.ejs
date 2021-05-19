@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= reading.title  %></title>
+    <link rel="stylesheet" type="text/css" href="/css/reading.css">
+</head>
+<body>
+    <%- include ('components/header.ejs') %>
+    <div>
+        <div class="main"></div>
+            <div class="main-header">
+                <h1><%= reading.title %></h1>
+            </div>    
+            <div class="read-message">
+                <p><%- reading.message %></p>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

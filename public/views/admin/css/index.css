@@ -32,7 +32,7 @@ h1{
 }
 
 .my-button{
-    margin: 50px auto;
+    margin: 10px auto;
     width: 1300px;
 }
 
@@ -40,6 +40,7 @@ h1{
     width: 100px;
     height: 30px;
     float: right;
+    margin-bottom: 15px;
     border-radius:4px;
     background-color:#DAA520;
 }

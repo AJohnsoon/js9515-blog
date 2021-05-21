@@ -41,6 +41,32 @@ router.get('/:slug', (req,res)=>{
 })
 
 
+router.get('/find/:slug', (req, res)=>{
+    let slugFind = req.params.slug;
+    categoryModel.findOne({
+        where: {
+            slug: slugFind
+        },
+        include: [{model: articleModel}]
+    }).then(categoryFind => {
+        if(categoryFind !== undefined){
+            categoryModel.findAll().then(categoriesFind => {
+                res.render('index', {
+                    articles: categoryFind.articles,
+                    categories: categoriesFind
+                })
+                console.info(`>>>>>>>>>>>>>>>>${slugFind} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`)
+            })
+        }
+        else{
+            res.redirect('/')
+        }
+    }).catch(err => {
+        console.info( `>>>>>>>>>>>>>>>${err}` )
+    })
+})
+
+
 
 
 module.exports = router

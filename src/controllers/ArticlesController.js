@@ -65,9 +65,55 @@ router.post("/articles/delete", (req, res)=>{
 })
 
 
-router.post('/admin/articles/edit/:id', (req, res)=>{
-    res.json();
+router.get('/admin/articles/edit/:id', (req, res)=>{
+    let id = req.params.id;
+    isNaN(id) ? res.redirect('/admin/articles') : console.info('user pass NAN')
+    try{
+        modelArticle.findOne({
+            where: {
+                id: id
+            },
+            include:[{model: modelCategory}]
+        }).then( findArticle => {
+            if(findArticle != undefined){
+                modelCategory.findAll().then(articlesFind =>{
+                    res.render('views/admin/articles/editArticles', {
+                        article: findArticle,
+                        categories: articlesFind
+                    });
+                })
+            }
+            else{
+                res.redirect('/admin/articles')
+            }
+        })
+
+    }
+    catch(err){
+        console.info(err)
+        res.redirect('/admin/articles')
+    }
 })
 
+
+router.post('/articles/update', (req,res)=>{
+    let updateArticle = {
+        id: req.body.id,
+        title: req.body.title,
+        message: req.body.message,
+        categoryId: req.body.categorySelected
+    }
+    modelArticle.update({
+        title: updateArticle.title,
+        slug: slugify(updateArticle.title),
+        message: updateArticle.message,
+        categoryId: updateArticle.categoryId
+    }, {
+        where: {id: updateArticle.id}
+    }).then(()=> {
+        res.redirect('/admin/articles')
+    })
+
+})
 
 module.exports = router

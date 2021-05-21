@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+    <link rel="stylesheet" type="text/css" href="/views/admin/css/article.css">
+    <script type="text/javascript" src="/tinymce/tinymce.min.js"></script> 
+    <script type="text/javascript" src="/js/tiny.js"></script>  
+</head>
+<body>
+    <%- include ('../../../components/header.ejs') %>
+    <div class="article">
+        <h1>Update Article</h1>
+        <form method="post" action="/articles/update">
+            <input type="text" required class="input-title" name="title" value="<%= article.title %>" >
+            <select name="categorySelected" class="form-control" required>
+                <% categories.forEach((category)=>{ %>
+                    <% if(category.id === article.categoryId){  %>
+                        <option value="<%= category.id %>" selected><%= category.title %></option>
+                    <% } else { %>
+                        <option value="<%= category.id %>"><%= category.title %></option>
+                    <% } %>
+                <% }) %>
+            </select><br>
+            <textarea class="text-article" required id="article-body" name="message">
+                <%= article.message %>
+            </textarea><br>            
+            <input id="hidden-id" name="id" value="<%= article.id %>">
+            <button class="btn-send">Update</button>
+        </form>
+    </div>
+    
+</body>
+</html>

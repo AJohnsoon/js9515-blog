@@ -113,7 +113,40 @@ router.post('/articles/update', (req,res)=>{
     }).then(()=> {
         res.redirect('/admin/articles')
     })
-
 })
+
+router.get('/articles/pagination/:num', (req, res)=>{
+    let page = req.params.num;
+    var pagination = 0;
+
+    if(isNaN(page) || page == 1){
+        pagination = 0 ;
+    }
+    else{
+        pagination = parseInt(page)*2;
+    }
+
+    modelArticle.findAndCountAll({
+        limit: 4,
+        offset: pagination
+    }).then( articlesRecived =>{
+        let next;
+        if(pagination + 4 >= articlesRecived.count){
+            next = false
+        }
+        else{
+            next = true
+        }
+
+        let result = {
+            nextPage: next,
+            search: articlesRecived,
+
+        }
+
+        res.json(result)        
+    })
+})
+
 
 module.exports = router

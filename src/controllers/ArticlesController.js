@@ -117,34 +117,41 @@ router.post('/articles/update', (req,res)=>{
 
 router.get('/articles/pagination/:num', (req, res)=>{
     let page = req.params.num;
-    var pagination = 0;
+    let pagination = 0
 
     if(isNaN(page) || page == 1){
-        pagination = 0 ;
+        pagination = 0 
     }
     else{
-        pagination = parseInt(page)*2;
+        pagination = parseInt(page) * 3
     }
 
     modelArticle.findAndCountAll({
-        limit: 4,
-        offset: pagination
+        limit: 3,
+        offset: pagination,
+        order:[
+            ['id', 'DESC']
+        ]
     }).then( articlesRecived =>{
         let next;
-        if(pagination + 4 >= articlesRecived.count){
+        if(pagination + 3 >= articlesRecived.count){
             next = false
         }
         else{
             next = true
         }
 
-        let result = {
+        let resultPage = {
             nextPage: next,
             search: articlesRecived,
 
         }
-
-        res.json(result)        
+        modelCategory.findAll().then( categoriesFind =>{
+            res.render('views/admin/articles/pages', {
+                result: resultPage, 
+                categories: categoriesFind
+            })        
+        })
     })
 })
 

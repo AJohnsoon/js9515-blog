@@ -1,0 +1,14 @@
+.row-next{
+    margin: auto;
+    width: 900px;
+    background-color: #880000;
+}
+
+.row-next a{
+    float:right;
+    text-decoration:none;
+    color: #800000;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+

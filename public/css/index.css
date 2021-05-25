@@ -62,3 +62,10 @@
 .main-selector .selected a{
     width: auto;
 }
+
+.selector-next{
+    width: 900;
+    margin: auto;
+    margin-top: -10px;
+    margin-bottom: 25px;
+}

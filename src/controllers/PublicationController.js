@@ -8,7 +8,8 @@ router.get('/', (req, res)=>{
     articleModel.findAll({
         order:[
             ['id', 'DESC']
-        ]
+        ],
+        limit: 3
     }).then((modelArticles) => {
         if(modelArticles != undefined){
             categoryModel.findAll().then(modelCategories =>{

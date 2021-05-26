@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/css/nextPage.css">
 </head>
 <body>
     <%- include ('components/header.ejs') %>
@@ -26,9 +27,10 @@
         </a>
     <% }) %>    
     </div> 
-
     <div class="selector-next">
-        <%- include ('components/nextPage.ejs') %>
+        <div class="row-next">
+            <a href="/articles/pagination/2">Next Page &raquo;</a>
+        </div>
     </div>
     
     
@@ -47,7 +49,9 @@
     <% }) %>
 
     
-    <%- include ('components/nextPage.ejs') %>
+    <div class="row-next">
+        <a href="/articles/pagination/2">Next Page &raquo;</a>
+    </div>
 
     </div>    
 

@@ -123,7 +123,7 @@ router.get('/articles/pagination/:num', (req, res)=>{
         pagination = 0 
     }
     else{
-        pagination = parseInt(page) * 3
+        pagination = (parseInt(page) -1) * 3
     }
 
     modelArticle.findAndCountAll({
@@ -142,6 +142,7 @@ router.get('/articles/pagination/:num', (req, res)=>{
         }
 
         let resultPage = {
+            currentPage: parseInt(page),
             nextPage: next,
             search: articlesRecived,
 

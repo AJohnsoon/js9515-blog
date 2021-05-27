@@ -10,50 +10,14 @@
 </head>
 <body>
     <%- include ('components/header.ejs') %>
-    <div class="home-title">
-        <h1>Wellcome to Home Page</h1>
-        <h2>see all our articles </h2>
-    </div>
-
-    
-    <div class="main-selector">
-        
-        <a href="/" >
-            <button class="selected"> Show All </button>
-        </a>
-        <% categories.forEach((category)=>{ %>
-        <a href="/find/<%= category.slug %>" >
-         <button class="selected"> <%= category.title %> </button> 
-        </a>
-    <% }) %>    
-    </div> 
-    <div class="selector-next">
-        <div class="row-next">
-            <a href="/articles/pagination/2">Next Page &raquo;</a>
-        </div>
-    </div>
-    
-    
-    <div>
-    <% articles.forEach(article =>{  %>
-        <div class="main">
-            <div class="main-header">
-                <h2><%= article.title  %></h2>
-            </div>
-            <div class="read-button">
-                <a href="/<%= article.slug %>">
-                    <button class="btn-main">Read Article</button> 
-                </a>
-            </div>
-        </div>
-    <% }) %>
-
+    <%- include ('components/title.ejs') %>
+    <%- include ('components/searchCategories.ejs') %>
+    <%- include ('components/showArticles.ejs') %>
     
     <div class="row-next">
         <a href="/articles/pagination/2">Next Page &raquo;</a>
     </div>
 
-    </div>    
 
     
 </body>

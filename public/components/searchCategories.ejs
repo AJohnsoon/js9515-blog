@@ -1,0 +1,10 @@
+<div class="main-selector">        
+    <a href="/" >
+        <button class="selected"> Show All </button>
+    </a>
+    <% categories.forEach((category)=>{ %>
+    <a href="/find/<%= category.slug %>" >
+        <button class="selected"> <%= category.title %> </button> 
+    </a>
+<% }) %>    
+</div> 

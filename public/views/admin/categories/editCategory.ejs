@@ -9,16 +9,6 @@
 </head>
 <body>
     <%- include ('../../../components/header.ejs') %>    
-    <div class="category">
-        <h1>Edit Category</h1>
-        <form method="post" action="/categories/update">
-            <input type="text" class="input-title" name="title" value="<%= category.title %>" placeholder="define you title"><br>
-            <button class="btn-send">Update</button><br>
-            <a href="/admin/categories"><button type="button" class="btn">Cancel</button></a>
-            <input id="hidden-id" name="id" value="<%= category.id %>">
-        </form>
-    </div>
-    
-    
+    <%- include ('../components/categories/editCategory.ejs') %>    
 </body>
 </html>

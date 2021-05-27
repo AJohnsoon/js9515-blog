@@ -1,0 +1,14 @@
+<div>
+    <% articles.forEach(article =>{  %>
+        <div class="main">
+            <div class="main-header">
+                <h2><%= article.title  %></h2>
+            </div>
+            <div class="read-button">
+                <a href="/<%= article.slug %>">
+                    <button class="btn-main">Read Article</button> 
+                </a>
+            </div>
+        </div>
+    <% }) %>    
+</div>    

@@ -1,0 +1,21 @@
+<div class="article">
+    <h1>Update Article</h1>
+    <form method="post" action="/articles/update">
+        <input type="text" required class="input-title" name="title" value="<%= article.title %>" >
+        <select name="categorySelected" class="form-control" required>
+            <% categories.forEach((category)=>{ %>
+                <% if(category.id === article.categoryId){  %>
+                    <option value="<%= category.id %>" selected><%= category.title %></option>
+                <% } else { %>
+                    <option value="<%= category.id %>"><%= category.title %></option>
+                <% } %>
+            <% }) %>
+        </select><br>
+        <textarea class="text-article" required id="article-body" name="message">
+            <%= article.message %>
+        </textarea><br>            
+        <input id="hidden-id" name="id" value="<%= article.id %>">
+        <button class="btn">Update</button>
+        <a href="/admin/articles"><button type="button" class="btn">Cancel</button></a>
+    </form>
+</div>

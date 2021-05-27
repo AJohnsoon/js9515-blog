@@ -10,46 +10,10 @@
 </head>
 <body>
     <%- include ('../../../components/header.ejs') %>
-    <h1>Articles</h1>
-    <div class="top-button">
-            <a href="/admin/articles/new">
-                <button class="btn-main"> Add new article </button>
-            </a>
-    </div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Slug</th>
-                <th>Category</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% showArticles.forEach(article =>{ %>
-            <tr>
-                <td> <%= article.id %></td>
-                <td> <%= article.title %> </td>
-                <td> <%= article.slug %> </td>     
-                <td> <%= article.category.title %> </td>
-                <td>
-                    <a href="/admin/articles/edit/<%= article.id %>">
-                        <button class="edit-button">Edit</button> 
-                    </a>
-                    <form class="form" method="POST" action="/articles/delete" onsubmit="deletePublication(event, this)">
-                        <input class="inputId" name="id" value="<%= article.id %>">
-                        <button class="delete-button"> Delete </button>
-                    </form>
-                </td>
-            </tr>
-            <% }) %>
-        </tbody>
-    </table>
+    <%- include ('../components/articles/titleArticle.ejs') %>
+    <%- include ('../components/articles/tableArticle.ejs') %>
+    <%- include ('../components/articles/createArticle.ejs') %>
 
-    <div class="my-button">
-        <a href="/admin/articles/new" ><button class="btn-click"> New Article </button></a>
-    </div>
-
+  
 </body>
 </html>

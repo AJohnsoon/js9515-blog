@@ -19,14 +19,22 @@ router.post('/user/create', (req, res)=>{
     let salt = bcrypt.genSaltSync(10);
     let hash = bcrypt.hashSync(password, salt);
 
-    userModel.create({
-        username: username,
-        password:  hash
-    }).then(()=>{
-        res.redirect('/admin/articles');
-    }).catch(err=>{
-        res.redirect('/');
+    userModel.findOne({where: {username: username}}).then(user => {
+        if(user == undefined){
+            userModel.create({
+                username: username,
+                password:  hash
+            }).then(()=>{
+                res.redirect('/admin/articles');
+            }).catch(err=>{
+                res.redirect('/');
+            })
+        }else{
+            res.redirect('/admin/users/create')
+        }
     })
+
+    
 })
 
 module.exports = router;

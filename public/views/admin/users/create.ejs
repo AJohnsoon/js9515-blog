@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New User</title>
+    <link rel="stylesheet" type="text/css" href="/views/admin/css/user.css">
+</head>
+<body>
+    <%- include ('../../../components/header.ejs') %>
+    <div class="user">
+        <h1>New User</h1>
+        <form method="post" action="/user/create">
+            <input name="username" type="email" required placeholder="E-Mail" class="input-username" >            
+            <input name="password" type="password" required placeholder="Password" class="input-pwd"><br>
+            <button class="btn">Create</button>
+        </form>
+        
+    </div>
+
+</body>
+</html>

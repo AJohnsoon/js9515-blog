@@ -1,0 +1,63 @@
+.user{
+    margin: 100px auto;
+    width: 700px;
+}
+
+.user h1{
+    color: #770000; 
+    margin-left: 100px;
+}
+
+.input-username{
+    padding-left: 5px;
+    margin: 10px 100px;
+    width: 500px;
+    height: 30px;
+    border-radius:4px ;
+}
+
+.input-pwd{
+    padding-left: 5px;
+    margin: 10px 100px;
+    width: 500px;
+    height: 30px;
+    border-radius:4px ;
+}
+
+.form-control{
+    padding-left: 5px;
+    margin: 10px 0px;
+    width: 288px;
+    height: 30px;
+    border-radius:4px ;
+}
+
+.text-user{
+    padding-top: 5px;
+    padding-left: 5px;        
+    margin: 10px;
+    width: 600px;
+    height: 200px;
+    border-radius:4px ;
+}
+
+.btn{
+    float:right;
+    margin-right: 95px;
+}
+
+
+button{
+    width: 110px;
+    height: 35px;
+    margin: 1px;
+    border-radius:4px solid;
+    background-color:#770000;
+    color: #fff;
+}
+
+
+#hidden-id{
+    width: 0px;
+    visibility: hidden;
+}

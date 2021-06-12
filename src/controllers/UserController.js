@@ -5,7 +5,12 @@ const userModel = require('../models/User')
 
 
 router.get('/admin/users', (req, res)=>{
-    res.send("User router ");
+    userModel.findAll().then(receivedUser => {       
+        res.render("views/admin/users/listUsers", {
+            users: receivedUser
+        });
+    })
+
 })
 
 
@@ -25,9 +30,9 @@ router.post('/user/create', (req, res)=>{
                 username: username,
                 password:  hash
             }).then(()=>{
-                res.redirect('/admin/articles');
+                res.redirect('/admin/users');
             }).catch(err=>{
-                res.redirect('/');
+                res.redirect('/', err);
             })
         }else{
             res.redirect('/admin/users/create')
@@ -35,6 +40,28 @@ router.post('/user/create', (req, res)=>{
     })
 
     
+})
+
+router.post('/users/delete', (req, res)=>{
+    let id = req.body.id;
+
+    if(id != undefined){
+        if(!isNaN(id)){
+            userModel.destroy({
+                where:{
+                    id:id
+                }
+            }).then(()=>{
+                res.redirect('/admin/users');
+            })
+        }
+        else{
+            res.redirect('/');
+        }
+    }
+    else{
+        res.redirect('/');
+    }
 })
 
 module.exports = router;

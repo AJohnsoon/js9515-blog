@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-
 router.get('/session/read', (req, res)=>{
     req.session.user = {
         username: 'allaNascimento',

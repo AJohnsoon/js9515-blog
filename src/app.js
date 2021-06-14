@@ -7,6 +7,7 @@ const categoriesController = require('./controllers/CategoriesController');
 const articlesController = require('./controllers/ArticlesController');
 const publicationController = require('./controllers/PublicationController');
 const userController = require('./controllers/UserController');
+const sessionController = require('./controllers/sessionController');
 
 app.use(express.static(path.join(__dirname+ '/..', 'public')));
 app.set('views', path.join(__dirname+ '/..', 'public'));

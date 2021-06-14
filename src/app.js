@@ -17,7 +17,6 @@ app.set('view engine', 'ejs');
 app.use(session({
     secret: 'keyboard word',
     cookie: {
-        secure: true,
         maxAge: 30000
     }
 }))

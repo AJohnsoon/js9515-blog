@@ -44,6 +44,12 @@
 .btn{
     float:right;
     margin-right: 95px;
+    background-color:green;
+}
+.btn-cancel{
+    float:right;
+    margin-right: 20px;
+    background-color: #770000;
 }
 
 

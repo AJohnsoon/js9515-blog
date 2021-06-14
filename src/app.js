@@ -7,6 +7,8 @@ const categoriesController = require('./controllers/CategoriesController');
 const articlesController = require('./controllers/ArticlesController');
 const publicationController = require('./controllers/PublicationController');
 const userController = require('./controllers/UserController');
+const sessionController = require('./controllers/SessionController');
+
 
 app.use(express.static(path.join(__dirname+ '/..', 'public')));
 app.set('views', path.join(__dirname+ '/..', 'public'));
@@ -16,7 +18,6 @@ app.set('view engine', 'ejs');
 app.use(session({
     secret: 'keyboard word',
     cookie: {
-        secure: true,
         maxAge: 30000
     }
 }))
@@ -26,7 +27,7 @@ app.use('/', categoriesController);
 app.use('/', articlesController);
 app.use('/', publicationController);
 app.use('/', userController);
-
+app.use('/', sessionController);
 
 
 

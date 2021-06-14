@@ -9,3 +9,4 @@
 ```
 yarn OR npm install
 ```
+![GitHub watchers](https://img.shields.io/github/watchers/AJohnsoon/js9515-blog)

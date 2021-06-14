@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/views/admin/css/index.css">
+    <script type="text/javascript" src="/js/deletePublication.js"></script>
+
+</head>
+<body>
+
+    <%- include ('../../../components/header.ejs') %>
+    <h1>All Users</h1>
+    <div class="top-button">
+        <a href="/admin/users/create">
+            <button class="btn-main"> Add new article </button>
+        </a>
+    </div>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>User</th>                
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(user =>{ %>
+            <tr>
+                <td> <%= user.id %> </td>
+                <td> <%= user.username %></td>               
+                <td>
+                    <a href="#">
+                        <button class="edit-button">Edit</button> 
+                    </a>
+                    <form class="form" method="POST" action="/users/delete" onsubmit="deletePublication(event, this)">
+                        <input class="inputId" name="id" value="<%= user.id %>">
+                        <button class="delete-button"> Delete </button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,7 +1,7 @@
 <div class="article">
     <h1>Add New Article</h1>
     <form method="post" action="/articles/save">
-        <input type="text" class="input-title" name="title" placeholder="define you title">
+        <input type="text" class="input-title" required name="title" placeholder="define you title">
         <select name="categorySelected" class="form-control">    
             <option selected="selected">Select a category</option>                            
             <% categories.forEach((category)=>{ %>

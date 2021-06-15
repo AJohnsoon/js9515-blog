@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 app.use(session({
     secret: 'keyboard word',
     cookie: {
-        maxAge: 30000
+        maxAge: 3000000000
     }
 }))
 
@@ -27,8 +27,6 @@ app.use('/', articlesController);
 app.use('/', publicationController);
 app.use('/', userController);
 app.use('/', sessionController);
-
-
 
 
 module.exports = app;

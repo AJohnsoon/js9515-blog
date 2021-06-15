@@ -56,7 +56,7 @@ router.get('/find/:slug', (req, res)=>{
                     articles: categoryFind.articles,
                     categories: categoriesFind
                 })
-                console.info(`>>>>>>>>>>>>>>>>${slugFind} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`)
+                console.info(`>>>>>>>>>>>>>>>>${slugFind} <<<<<<<<<<<<<<<<<<<<<<<<<<<<`)
             })
         }
         else{

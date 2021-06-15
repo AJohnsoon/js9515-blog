@@ -3,14 +3,15 @@ const router = express.Router();
 const modelCategory = require('../models/Category');
 const modelArticle = require('../models/Article')
 const slugify = require('slugify')
+const middlewareAuth = require('../middlewares/authenticate');
 
-router.get('/admin/articles/new', (req, res) => {
+router.get('/admin/articles/new', middlewareAuth, (req, res) => {
     modelCategory.findAll().then(allCategories => {
         res.render('views/admin/articles/article', {categories: allCategories})
     })
 });
 
-router.post('/articles/save', (req, res)=>{
+router.post('/articles/save', middlewareAuth, (req, res)=>{
 
     let article = {
         title: req.body.title,
@@ -32,7 +33,7 @@ router.post('/articles/save', (req, res)=>{
     }
 })
 
-router.get('/admin/articles', (req, res)=>{
+router.get('/admin/articles', middlewareAuth,  (req, res)=>{
     modelArticle.findAll({
         include: [{
             model: modelCategory
@@ -44,7 +45,7 @@ router.get('/admin/articles', (req, res)=>{
 
 
 
-router.post("/articles/delete", (req, res)=>{
+router.post("/articles/delete", middlewareAuth, (req, res)=>{
     let id = req.body.id;
 
     if (id != undefined){
@@ -65,7 +66,7 @@ router.post("/articles/delete", (req, res)=>{
 })
 
 
-router.get('/admin/articles/edit/:id', (req, res)=>{
+router.get('/admin/articles/edit/:id', middlewareAuth, (req, res)=>{
     let id = req.params.id;
     isNaN(id) ? res.redirect('/admin/articles') : console.info('user pass NAN')
     try{
@@ -96,7 +97,7 @@ router.get('/admin/articles/edit/:id', (req, res)=>{
 })
 
 
-router.post('/articles/update', (req,res)=>{
+router.post('/articles/update', middlewareAuth, (req,res)=>{
     let updateArticle = {
         id: req.body.id,
         title: req.body.title,

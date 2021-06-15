@@ -2,19 +2,19 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
 const userModel = require('../models/User')
+const middlewareAuth = require('../middlewares/authenticate');
 
 
-router.get('/admin/users', (req, res)=>{
+
+router.get('/admin/users', middlewareAuth, (req, res)=>{
     userModel.findAll().then(receivedUser => {       
         res.render("views/admin/users/listUsers", {
             users: receivedUser
         });
     })
-
 })
 
-
-router.get('/admin/users/create',(req, res)=>{
+router.get('/admin/users/create', middlewareAuth,(req, res)=>{
     res.render('views/admin/users/create');
 })
 
@@ -38,11 +38,9 @@ router.post('/user/create', (req, res)=>{
             res.redirect('/admin/users/create')
         }
     })
-
-    
 })
 
-router.post('/users/delete', (req, res)=>{
+router.post('/users/delete', middlewareAuth,(req, res)=>{
     let id = req.body.id;
 
     if(id != undefined){
@@ -63,5 +61,7 @@ router.post('/users/delete', (req, res)=>{
         res.redirect('/');
     }
 })
+
+
 
 module.exports = router;

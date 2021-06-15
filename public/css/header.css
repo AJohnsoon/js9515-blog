@@ -17,6 +17,11 @@ header{
 
 header nav ul {
     padding: 35px 70px;
+}
+
+header .menu-logout{
+    font-size: 15px;
+    margin: -88px -1px ;
     float: right;
 }
 

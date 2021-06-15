@@ -1,14 +1,14 @@
 <div class="article">
     <h1>Add New Article</h1>
     <form method="post" action="/articles/save">
-        <input type="text" class="input-title" name="title" placeholder="define you title">
+        <input type="text" class="input-title" required name="title" placeholder="define you title">
         <select name="categorySelected" class="form-control">    
             <option selected="selected">Select a category</option>                            
             <% categories.forEach((category)=>{ %>
-                <option value="<%= category.id %>"><%= category.title %></option>
+                <option required value="<%= category.id %>"><%= category.title %></option>
             <% }) %>
         </select><br>
-        <textarea class="text-article" id="article-body" name="body" placeholder="make your publication here "></textarea><br>            
+        <textarea class="text-article" id="article-body" required name="body" placeholder="make your publication here "></textarea><br>            
         <button class="btn">Add Article</button>            
         <a href="/admin/articles"><button type="button" class="btn">Cancel</button></a>
     </form>
